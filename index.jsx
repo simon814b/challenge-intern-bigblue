@@ -4,6 +4,7 @@ import { Cart } from './Cart'
 import { Shop } from './Shop'
 
 const App = () => {
+    const [productsList, setProductsList] = React.useState([])
     React.useEffect(() => {
         fetch('http://localhost:8080/products')
             .then((response) => response.json())
@@ -51,7 +52,7 @@ const App = () => {
     }
 
     return (
-        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <div class="d-flex justify-content-between">
             <Shop productsList={productsList} onBuy={onBuy} />
             <Cart
                 productsList={productsList}
