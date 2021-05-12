@@ -4,45 +4,13 @@ import { Cart } from './Cart'
 import { Shop } from './Shop'
 
 const App = () => {
-    const productsList = [
-        {
-            name: 'product 1',
-            price: 10,
-            initialStock: 20,
-            image:
-                'https://img-0.journaldunet.com/pb5J23IF99HMY_P9HtO64G38epM=/1240x/smart/32d90de13a5f411c86709152f70fc67c/ccmcms-jdn/10861192.jpg',
-        },
-        {
-            name: 'product 1 in blue',
-            price: 11,
-            initialStock: 5,
-            image: 'product1blue.webp',
-        },
-        {
-            name: 'product 2',
-            price: 15,
-            initialStock: 10,
-            image: 'product2.webp',
-        },
-        {
-            name: 'product 2 big',
-            price: 30,
-            initialStock: 10,
-            image: 'product2big.webp',
-        },
-        {
-            name: 'product 3',
-            price: 7.5,
-            initialStock: 20,
-            image: 'product3.webp',
-        },
-        {
-            name: 'product 4',
-            price: 100,
-            initialStock: 2,
-            image: 'product4.webp',
-        },
-    ]
+    React.useEffect(() => {
+        fetch('http://localhost:8080/products')
+            .then((response) => response.json())
+            .then((products) => {
+                setProductsList(products.products)
+            })
+    }, [])
 
     const initialInShopProducts = {
         ['product 1']: 20,
@@ -93,4 +61,4 @@ const App = () => {
     )
 }
 
-ReactDOM.render(<App />, document.getElementById('root') as HTMLElement)
+ReactDOM.render(<App />, document.getElementById('root'))
