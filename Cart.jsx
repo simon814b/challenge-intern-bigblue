@@ -2,9 +2,9 @@ import * as React from 'react'
 
 const Cart = (props) => {
     return (
-        <div class="card w-50 m-4 pb-4">
-            <h1 class="card-header">Shopping Cart</h1>
-            <table class="table">
+        <div className="card w-50 m-4 pb-4">
+            <h1 className="card-header">Shopping Cart</h1>
+            <table className="table">
                 <thead>
                     <tr>
                         <th scope="col">Item</th>
@@ -22,7 +22,7 @@ const Cart = (props) => {
                     ))}
                 </tbody>
             </table>
-            <span class="mx-auto">Total: {}$</span>
+            <span className="mx-auto">Total: {}$</span>
         </div>
     )
 }

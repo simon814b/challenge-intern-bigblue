@@ -52,7 +52,7 @@ const App = () => {
     }
 
     return (
-        <div class="d-flex justify-content-between">
+        <div className="d-flex justify-content-between">
             <Shop productsList={productsList} onBuy={onBuy} />
             <Cart
                 productsList={productsList}
