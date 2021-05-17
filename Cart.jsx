@@ -16,7 +16,7 @@ const Cart = (props) => {
                     {props.productsList.map((product, index) => (
                         <tr key={index}>
                             <td>{product.name}</td>
-                            <td>{props.inCartProductsList[product.name]}</td>
+                            <td>{props.inCartProductsList[product.id]}</td>
                             <td>{product.price}$</td>
                         </tr>
                     ))}

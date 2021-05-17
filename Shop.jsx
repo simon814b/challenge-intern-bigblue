@@ -21,10 +21,12 @@ const Shop = (props) => {
                                     </div>
                                 </h5>
                                 <button
-                                    onClick={() => props.onBuy(product.name)}
+                                    onClick={() =>
+                                        props.onAddToCart(product.id)
+                                    }
                                     className="btn btn-primary"
                                 >
-                                    Buy
+                                    Add to cart
                                 </button>
                             </div>
                         </div>

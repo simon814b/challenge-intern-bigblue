@@ -5,6 +5,9 @@ import { Shop } from './Shop'
 
 const App = () => {
     const [productsList, setProductsList] = React.useState([])
+    const [availableProducts, setAvailableProducts] = React.useState([])
+    const [inCartProducts, setInCartProducts] = React.useState([])
+
     React.useEffect(() => {
         fetch('http://localhost:8080/products')
             .then((response) => response.json())
@@ -13,47 +16,34 @@ const App = () => {
             })
     }, [])
 
-    const initialInShopProducts = {
-        ['product 1']: 20,
-        ['product 1 in blue']: 5,
-        ['product 2']: 10,
-        ['product 2 big']: 10,
-        ['product 3']: 20,
-        ['product 4']: 2,
-    }
+    React.useEffect(() => {
+        const initialAvailableProducts = productsList.reduce((acc, curr) => {
+            return { ...acc, [curr.id]: curr.initial_stock } //a changer en stock
+        }, {})
+        const initialInCartProducts = productsList.reduce((acc, curr) => {
+            return { ...acc, [curr.id]: 0 } //a changer en stock
+        }, {})
 
-    const initialInCartProducts = {
-        ['product 1']: 0,
-        ['product 1 in blue']: 0,
-        ['product 2']: 0,
-        ['product 2 big']: 0,
-        ['product 3']: 0,
-        ['product 4']: 0,
-    }
+        setAvailableProducts(initialAvailableProducts)
+        setInCartProducts(initialInCartProducts)
+    }, [productsList])
 
-    const [inShopProducts, setInShopProducts] = React.useState(
-        initialInShopProducts
-    )
-    const [inCartProducts, setInCartProducts] = React.useState(
-        initialInCartProducts
-    )
-
-    const onBuy = (productId) => {
-        const inShopBeforeBuy = inShopProducts[productId]
-        setInShopProducts({
-            ...inShopProducts,
-            [productId]: inShopBeforeBuy - 1,
+    const onAddToCart = (productId) => {
+        const availableBeforeAdd = availableProducts[productId]
+        setAvailableProducts({
+            ...availableProducts,
+            [productId]: availableBeforeAdd - 1,
         })
-        const inCartBeforeBuy = inCartProducts[productId]
+        const inCartBeforeAdd = inCartProducts[productId]
         setInCartProducts({
             ...inCartProducts,
-            [productId]: inCartBeforeBuy + 1,
+            [productId]: inCartBeforeAdd + 1,
         })
     }
 
     return (
         <div className="d-flex justify-content-between">
-            <Shop productsList={productsList} onBuy={onBuy} />
+            <Shop productsList={productsList} onAddToCart={onAddToCart} />
             <Cart
                 productsList={productsList}
                 inCartProductsList={inCartProducts}
