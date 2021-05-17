@@ -33,7 +33,7 @@ npm start
 
 You will also need to run the backend. Here is how to do it. 
 
-Download [this repository](https://github.com/mboumerdassi/bigblue-intern-challenge-backend). To start the server, open a terminal, go to the repo's root and run the following command: run main.go. You can now start coding!
+Download [this repository](https://github.com/mboumerdassi/bigblue-intern-challenge-backend). To start the server, open a terminal, go to the repo's root and run the following command: `run main.go` (*`go run products.go`* instead?). You can now start coding!
 
 ## Your missions
 
