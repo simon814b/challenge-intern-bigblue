@@ -6,9 +6,19 @@ This README will present you the code, how to run it and the most important: you
 
 ## The code
 
-This repository's code contains
+This repository contains a src folders with 2 files `index.html` and `index.tsx` and 2 folders *Cart* and *Shop*. 
+
+`index.html` is the HTML page that will be displayed on your browser when you run the code. But there is not much code in it. Indeed the "interesting" code is in the Javascript files whose root is the file `index.jsx` that imports the components `Cart` and `Shop` from the corresponding folders. 
+
+Running this code (see how below) displays a page with a shop section and a cart section. 
+
+The Shop section contains 6 products with their name, price, image and "Add to cart" button. 
+
+The Cart section contains a table with all the items and how many has been added to cart. Clicking on "Add to cart" button in the Shop updates this number. 
 
 *add picture*
+
+The style is handled through the Bootstrap library. So the style is determined by all the `className=...` 
 *talk about the style*
 
 ## How to run it
