@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import { Cart } from './Cart'
-import { Shop } from './Shop'
+import { Cart } from './components/Cart/Cart'
+import { Shop } from './components/Shop/Shop'
 
 const App = () => {
     const [productsList, setProductsList] = React.useState([])
